@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Lexend:wght@100..900&display=swap');
+
+:root {
+    color-scheme: light dark;
+    --bg-color: light-dark(#CCC, #222);
+    --text-color: light-dark(#222, #CCC);
+    --highlight-color: light-dark(#FF0000, #ffe91c);
+    --text-color-heavy: light-dark(#000000, #FFFFFF);
+    --BATTALION-color: rgba(225, 223, 28, 1);
+
+    --copy-font: "Lexend", sans-serif;
+    --header-font: "Black Ops One", system-ui;
+}
+
+html,
+body {
+    font-family: var(--copy-font);
+    font-optical-sizing: auto;
+    font-weight: normal;
+    font-style: normal;
+    font-size: 16px;
+}
+
+.layout {
+    width: 1500px;
+    margin: 0 auto;
+    width: 1500px;
+    max-width: calc(100% - 2rem);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--header-font);
+    font-weight: 900;
+    text-transform: uppercase;
+    color: var(--BATTALION-color);
+}
