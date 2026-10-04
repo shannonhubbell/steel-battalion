@@ -1,5 +1,7 @@
 ---
 import "../styles/general.css";
+import "aos/dist/aos.css";
+
 const { title, description, classes } = Astro.props;
 ---
 
@@ -16,6 +18,10 @@ const { title, description, classes } = Astro.props;
 	</head>
 	<body class:list={classes}>
 		<slot />
+		<script>
+			import AOS from "aos";
+			AOS.init();
+		</script>
 	</body>
 </html>
 

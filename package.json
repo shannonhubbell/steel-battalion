@@ -12,9 +12,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "aos": "^2.3.4",
     "astro": "^7.3.5"
   },
   "allowScripts": {
     "esbuild": true
+  },
+  "devDependencies": {
+    "@types/aos": "^3.0.8"
   }
 }

@@ -2,7 +2,7 @@
 
 :root {
     color-scheme: light dark;
-    --bg-color: light-dark(#CCC, #222);
+    --bg-color: light-dark(#657053, #657053);
     --text-color: light-dark(#222, #CCC);
     --highlight-color: light-dark(#FF0000, #ffe91c);
     --text-color-heavy: light-dark(#000000, #FFFFFF);
@@ -10,6 +10,87 @@
 
     --copy-font: "Lexend", sans-serif;
     --header-font: "Black Ops One", system-ui;
+
+    --glitch-red: #ff4757;
+    --glitch-cyan: #00d9ff;
+
+    --color-pink: #ff6b9d;
+    --color-success: #00ff87;
+    --color-warning: #fffa65;
+}
+
+.crt-filter::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 2px,
+        rgba(0, 0, 0, 0.25) 2px,
+        rgba(0, 0, 0, 0.25) 4px
+    );
+    pointer-events: none;
+    z-index: 10;
+    animation: crt-scanline-flicker 0.08s steps(2) infinite, chromatic-jitter 5s steps(2) infinite;
+}
+
+.glitch-text {
+    animation: text-glitch 6s ease-in-out infinite;
+}
+
+@keyframes text-glitch {
+    0%,
+    92%,
+    100% {
+        transform: translateX(0);
+        text-shadow: none;
+    }
+    93% {
+        transform: translateX(-2px);
+        text-shadow:
+            2px 0 var(--glitch-cyan),
+            -2px 0 var(--glitch-red);
+    }
+    94% {
+        transform: translateX(2px);
+        text-shadow:
+            -2px 0 var(--glitch-cyan),
+            2px 0 var(--glitch-red);
+    }
+    95% {
+        transform: translateX(-1px);
+        text-shadow:
+            1px 0 var(--glitch-cyan),
+            -1px 0 var(--glitch-red);
+    }
+    96% {
+        transform: translateX(1px);
+        text-shadow: none;
+    }
+}
+@keyframes chromatic-jitter {
+    0%,
+    100% {
+        box-shadow:
+            3px 0 0 rgba(255, 71, 87, 0.3),
+            -3px 0 0 rgba(0, 217, 255, 0.3);
+    }
+    50% {
+        box-shadow:
+            4px 1px 0 rgba(255, 71, 87, 0.4),
+            -4px -1px 0 rgba(0, 217, 255, 0.4);
+    }
+}
+
+@keyframes crt-scanline-flicker {
+    0%,
+    100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.92;
+    }
 }
 
 html,
@@ -19,6 +100,7 @@ body {
     font-weight: normal;
     font-style: normal;
     font-size: 16px;
+    background-color: var(--bg-color);
 }
 
 .layout {
